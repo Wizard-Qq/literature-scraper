@@ -58,11 +58,6 @@ class ReportData(BaseModel):
     """报告数据"""
     report_type: str  # daily, weekly
     date: datetime
-    sources: List[SourceResult] = Field(default_factory=list)
+    sources: list = Field(default_factory=list)
     keywords_stats: dict = Field(default_factory=dict)
     summary: Optional[str] = None
-    
-    class SourceResult(BaseModel):
-        source: SourceType
-        article_count: int
-        articles: List[Article]

@@ -47,8 +47,8 @@ class ScienceLatestNewsScraper(BaseScraper):
             config = {
                 "name": "Science Latest News",
                 "base_url": "https://www.science.org",
-                "timeout": 300000,
-                "wait_time": 90000,
+                "timeout": 300000,  # 5 分钟
+                "wait_time": 120000,  # 120 秒等待 Cloudflare
                 "solve_cloudflare": True,
             }
         super().__init__(config)
@@ -94,6 +94,10 @@ class ScienceLatestNewsScraper(BaseScraper):
         
         logger.info(f"找到 {len(urls)} 篇 Latest News 文章")
         return urls[:limit]
+    
+    def get_latest_urls(self, limit: int = 10) -> List[str]:
+        """实现基类抽象方法 - 获取最新 URL 列表"""
+        return self.get_latest_news_urls(limit)
     
     def parse_article(self, html: str, url: str) -> Optional[ScienceArticle]:
         """

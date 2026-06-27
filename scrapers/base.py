@@ -17,9 +17,11 @@ from .models import Article, CrawlResult, SourceType
 FETCHER_PARAMS = {
     "headless": True,
     "disable_resources": True,  # 禁用图片/CSS/字体加速
-    "timeout": 180000,
-    "wait": 60000,
+    "timeout": 300000,  # 5 分钟超时
+    "wait": 180000,  # 180 秒等待 Cloudflare ⭐ 关键参数 (2026-06-28 验证)
     "solve_cloudflare": True,
+    "browser_type": "chromium",
+    "stealth": True,  # 启用隐身模式
 }
 
 
