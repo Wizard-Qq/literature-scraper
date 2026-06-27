@@ -1,0 +1,23 @@
+# 邮箱配置文件示例
+# 复制此文件为 email_config.yaml 并填写真实信息
+# 注意：此文件包含敏感信息，请勿提交到 Git
+
+smtp:
+  # QQ 邮箱 SMTP 设置
+  server: "smtp.qq.com"
+  port: 465  # SSL 端口，也可以用 587 (TLS)
+  use_ssl: true
+  
+  # 发件人信息
+  sender_email: "YOUR_QQ_EMAIL@qq.com"
+  sender_password: "YOUR_AUTH_CODE"  # ⚠️ 这里填写 QQ 邮箱的"授权码"，不是登录密码！
+  
+  # 收件人信息
+  recipient_email: "2892335188@qq.com"
+  recipient_name: "文献追踪报告"
+
+# 获取 QQ 邮箱授权码的方法：
+# 1. 登录 QQ 邮箱网页版 (mail.qq.com)
+# 2. 设置 → 账户 → 开启 POP3/SMTP 服务
+# 3. 生成授权码（需要手机验证）
+# 4. 复制授权码粘贴到上方

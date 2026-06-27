@@ -1,0 +1,28 @@
+# Git 忽略文件
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# 配置文件（包含密码）
+config/email_config.yaml
+
+# 输出文件
+output/
+logs/
+*.log
+
+# 临时文件
+*.tmp
+*.bak
+.DS_Store
+
+# 环境变量
+.env
+.venv/
+venv/
