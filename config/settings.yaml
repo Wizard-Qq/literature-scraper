@@ -1,0 +1,69 @@
+# 文献追踪系统配置
+
+# 邮箱配置
+email:
+  smtp_server: "smtp.qq.com"
+  smtp_port: 465
+  use_ssl: true
+  sender_email: "2892335188@qq.com"
+  # sender_password 存储在 secrets.yaml 中
+  
+# 数据源配置
+sources:
+  science:
+    name: "Science.org"
+    base_url: "https://www.science.org"
+    enabled: true
+    timeout: 300000  # 5 分钟
+    wait_time: 90000  # 90 秒等待 Cloudflare
+    solve_cloudflare: true
+    
+  nature:
+    name: "Nature.com"
+    base_url: "https://www.nature.com"
+    enabled: true
+    timeout: 180000
+    wait_time: 60000
+    solve_cloudflare: true
+    
+  cell:
+    name: "Cell.com"
+    base_url: "https://www.cell.com"
+    enabled: true
+    timeout: 180000
+    wait_time: 60000
+    solve_cloudflare: true
+
+# 爬取策略
+scraper:
+  # 每次运行爬取的最新文章数
+  max_articles_per_source: 10
+  # 是否爬取全文详情页
+  fetch_full_pages: true
+  # 重试次数
+  max_retries: 3
+  # 重试延迟（秒）
+  retry_delay: 10
+
+# 关键词过滤
+keywords:
+  # 必须包含至少一个
+  must_include:
+    - "virtual cell"
+    - "synthetic biology"
+    - "systems biology"
+    - "computational biology"
+  
+  # 排除关键词
+  exclude:
+    - "review"  # 可选：排除综述
+
+# 报告配置
+report:
+  # 邮件接收人
+  recipient_email: "2892335188@qq.com"
+  recipient_name: "文献追踪报告"
+  # 日报发送时间（cron 格式）
+  daily_schedule: "0 8 * * *"
+  # 周报发送时间
+  weekly_schedule: "0 20 * * 0"

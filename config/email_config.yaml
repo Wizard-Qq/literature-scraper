@@ -1,0 +1,16 @@
+# 邮箱配置文件
+# ⚠️ 此文件包含敏感信息，已添加到 .gitignore，不会被提交到 GitHub
+
+smtp:
+  # QQ 邮箱 SMTP 设置
+  server: "smtp.qq.com"
+  port: 465  # SSL 端口
+  use_ssl: true
+  
+  # 发件人信息
+  sender_email: "2892335188@qq.com"
+  sender_password: "hoozpwvuoawkddfg"  # QQ 邮箱授权码
+  
+  # 收件人信息
+  recipient_email: "2892335188@qq.com"
+  recipient_name: "文献追踪报告"

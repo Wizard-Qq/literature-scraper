@@ -1,0 +1,25 @@
+# 文献追踪系统依赖
+
+# 爬虫核心
+scrapling>=0.4.9
+playwright>=1.40.0
+
+# 配置管理
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# 数据处理
+pydantic>=2.0.0
+loguru>=0.7.0
+
+# 邮件发送
+# (使用 stdlib smtplib)
+
+# 数据库
+# (使用 stdlib sqlite3)
+
+# HTTP 请求
+curl-cffi>=0.6.0
+
+# 工具
+click>=8.0.0  # CLI 命令
