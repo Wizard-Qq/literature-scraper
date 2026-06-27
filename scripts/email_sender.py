@@ -30,9 +30,9 @@ def send_email(subject: str, content: str, report_type: str = "日报"):
     
     # 创建邮件
     msg = MIMEMultipart('alternative')
-    msg['From'] = Header(f"文献追踪系统 <{smtp_config['sender_email']}>", 'utf-8')
-    msg['To'] = Header(f"{smtp_config['recipient_name']} <{smtp_config['recipient_email']}>", 'utf-8')
-    msg['Subject'] = Header(f"[{report_type}] {subject} - {datetime.now().strftime('%Y-%m-%d')}", 'utf-8')
+    msg['From'] = smtp_config['sender_email']
+    msg['To'] = smtp_config['recipient_email']
+    msg['Subject'] = f"[{report_type}] {subject} - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
     
     # 添加 HTML 内容
     html_content = f"""
