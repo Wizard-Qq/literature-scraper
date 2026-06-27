@@ -1,0 +1,20 @@
+# Science 期刊报告定时任务配置
+# 使用 crontab 安装：crontab /opt/data/literature-scraper/config/crontab_science.txt
+
+# 环境变量
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+PYTHON=/usr/bin/python3
+
+# ============== Science 每日报告 ==============
+# 每天早上 8:00 发送 Latest News 报告
+0 8 * * * cd /opt/data/literature-scraper && /opt/venv/bin/python3 scripts/daily_science_report.py --limit 10 --send-email >> /opt/data/literature-scraper/logs/cron_daily.log 2>&1
+
+# ============== Science 每周报告 ==============
+# 每周六下午 2:00 发送 Commentary/Editorial/Careers 报告
+# 注意：周六是一周的最后一天，涵盖周一到周六的内容
+0 14 * * 6 cd /opt/data/literature-scraper && /opt/venv/bin/python3 scripts/weekly_science_report.py --send-email >> /opt/data/literature-scraper/logs/cron_weekly.log 2>&1
+
+# ============== 日志清理 ==============
+# 每月 1 号凌晨 3 点清理 30 天前的日志
+0 3 1 * * find /opt/data/literature-scraper/logs -name "*.log" -mtime +30 -delete
